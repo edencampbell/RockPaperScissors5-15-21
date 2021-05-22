@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - May 17 2021</title>
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</head>
+
+<body translate="no" >
+  <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <little>Rock Paper Scissors Tutorial</title>
+  </head>
+  <body>
+    
+    <h2>Computer Choice :<span id="computer-choice"></span></h2>
+    <h2>Your Choice :<span id="user-choice"></span></h2>
+    <h2>Result :<span id="result"></span></h2>
+    
+    <button id="rock">rock</button>
+    <button id="paper">paper</button>
+    <button id="scissors">scissors</button>
+
+</html>
+  
+  
+      <script id="rendered-js" >
+const computerChoiceDisplay = document.getElementById('computer-choice')
+const userChoiceDisplay = document.getElementById('user-choice')
+const resultDisplay = document.getElementById('result')
+const possibleChoices = document.querySelectorAll('button')
+let userChoice 
+let computerChoice
+let result
+
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+  userChoice = e.target.id
+  userChoiceDisplay.innerHTML = userChoice                           
+  generateComputerChoice() 
+  getResult()
+}))
+
+function generateComputerChoice() {
+  const randomNumber = Math.floor(Math.random() * 3) +1
+  
+  if (randomNumber === 1) {
+    computerChoice = 'rock'
+  }
+  
+  if (randomNumber === 2) {
+    computerChoice = 'scissors'
+  }
+  
+  if (randomNumber === 3) {
+    computerChoice = 'paper'
+  }
+}
+
+
+    function getResult () {
+      if (computerChoice === userChoice) {
+        result = 'it is a draw' 
+      }
+      if (computerChoice === 'rock' && userChoice === "paper") {
+        result = 'you lost!'
+      } 
+      if (computerChoice === 'scissors' && userChoice === "rock") {
+        result = 'you lost'
+      }  
+      if (computerChoice === 'paper' && userChoice === "scissors") {
+        result = 'you lost'
+      }  
+      if (computerChoice === 'scissors' && userChoice === "rock") {
+        result = 'you win!'
+      }  
+      if (computerChoice === 'paper' && userChoice === "rock") {
+        result = 'you win!'
+      }  
+      if (computerChoice === 'rock' && userChoice === "scissors") {
+        result = 'you win!'
+      }
+     resultDisplay.innerHTML = result 
+    }
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
